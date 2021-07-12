@@ -1,0 +1,27 @@
+{
+    "codeLens.enable": true,
+    // coc settings
+    "diagnostic.enable": true,
+    "diagnostic.errorSign": "",
+    "diagnostic.warningSign": "",
+    "diagnostic.infoSign": "",
+    "diagnostic.hintSign": "",
+    // git settings
+    "git.realtimeGutters": true,
+    "git.enableGutters": true,
+    // suggestions
+    "suggest.noselect": true,
+    "suggest.enablePreselect": true,
+    // java settings
+    "java.format.enabled": true,
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    "java.completion.enabled": true,
+    // preferences
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "java",
+        "python",
+        "markdown",
+        "json"
+    ]
+}

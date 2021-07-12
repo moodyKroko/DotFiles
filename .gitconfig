@@ -1,0 +1,24 @@
+[user]
+	name = Russel Rai
+	email = leon.amorphy@googlemail.com
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore
+[push]
+    default = simple
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+    ui = auto
+[init]
+    defaultBranch = main
+[github]
+    user = LeoRuss
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
