@@ -14,6 +14,7 @@ set encoding=utf8
 set number relativenumber
 set ruler
 
+" test
 set clipboard+=unnamedplus
 set cmdheight=1
 set hidden
