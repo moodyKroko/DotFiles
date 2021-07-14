@@ -204,4 +204,17 @@ let g:python3_host_prog = '/usr/bin/python3'
           \ 'header':  ['fg', 'Comment'] }
     "}}}
 
+    " itchyny/lightline.vim "{{{
+    " -------------------------------------------------------------------------
+    let g:lightline = {
+          \ 'colorscheme': 'one',
+          \ 'active': {
+          \   'left': [ [ 'mode', 'paste' ],
+          \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+          \ },
+          \ 'component_function': {
+          \   'gitbranch': 'FugitiveHead'
+          \ },
+          \ }
+    "
 "}}}

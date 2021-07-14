@@ -16,9 +16,11 @@ require 'nvim-treesitter.configs'.setup {
 	ensure_installed = {
         "java",
         "json",
-        "comment",
         "html",
         "css",
+        "python",
+        "lua",
+        "latex"
 	}
 }
 EOF
