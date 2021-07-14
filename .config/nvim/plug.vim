@@ -3,7 +3,6 @@ if has("nvim")
 endif
 
 call plug#begin()
-Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
