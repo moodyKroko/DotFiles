@@ -1,5 +1,6 @@
 {
     "codeLens.enable": true,
+    "diagnostic.virtualText": true,
     // coc settings, custom icons on gutter
     "diagnostic.enable": true,
     "diagnostic.errorSign": "",
