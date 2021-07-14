@@ -142,79 +142,9 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 " Plugin settings "{{{
 " -----------------------------------------------------------------------------
-
-    " scrooloose/nerdtree "{{{
-    " -------------------------------------------------------------------------
-
-        " nerdTree devi-cons highlighter
-        let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
-        let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
-
-        " disable highlighting
-        let g:NERDTreeDisableFileExtensionHighlight = 1
-        let g:NERDTreeDisableExactMatchHighlight = 1
-        let g:NERDTreeDisablePatternMatchHighlight = 1
-
-        let g:NERDTreeLimitedSyntax = 1
-
-        let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting;exact match
-        let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
-
-
-        " Trigger a highlight in the appropriate direction when pressing these keys.
-        let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
-
-        " Only underline the highlights instead of using custom colors.
-        highlight QuickScopePrimary gui=underline cterm=underline
-        highlight QuickScopeSecondary gui=underline cterm=underline
-    "}}}
-
     " frazrepo/vim-rainbow "{{{
     " -------------------------------------------------------------------------
-
         " rainbow color bracket setting
         let g:rainbow_active = 1
     "}}}
-
-    " junegunn/fzf.vim "{{{
-    " -------------------------------------------------------------------------
-
-        let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
-        let $FZF_DEFAULT_OPTS = '--reverse'
-
-        let g:fzf_action = {
-          \ 'ctrl-t': 'tab split',
-          \ 'ctrl-x': 'split',
-          \ 'ctrl-v': 'vsplit',
-          \ 'ctrl-y': {lines -> setreg('*', join(lines, "\n"))}}
-
-        let g:fzf_colors =
-        \ { 'fg':      ['fg', 'Normal'],
-          \ 'bg':      ['bg', 'Normal'],
-          \ 'hl':      ['fg', 'Comment'],
-          \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-          \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-          \ 'hl+':     ['fg', 'Statement'],
-          \ 'info':    ['fg', 'PreProc'],
-          \ 'border':  ['fg', 'Ignore'],
-          \ 'prompt':  ['fg', 'Conditional'],
-          \ 'pointer': ['fg', 'Exception'],
-          \ 'marker':  ['fg', 'Keyword'],
-          \ 'spinner': ['fg', 'Label'],
-          \ 'header':  ['fg', 'Comment'] }
-    "}}}
-
-    " itchyny/lightline.vim "{{{
-    " -------------------------------------------------------------------------
-    let g:lightline = {
-          \ 'colorscheme': 'one',
-          \ 'active': {
-          \   'left': [ [ 'mode', 'paste' ],
-          \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-          \ },
-          \ 'component_function': {
-          \   'gitbranch': 'FugitiveHead'
-          \ },
-          \ }
-    "
 "}}}
