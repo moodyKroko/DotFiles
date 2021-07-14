@@ -88,15 +88,6 @@ runtime ./maps.vim
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 if (has("termguicolors"))
-    "syntax enable           "not with onedark colorscheme
-    syntax on
-    set termguicolors
-    set wildoptions=pum
-    set background=dark
-
-    "One dark
-    let g:onedark_hide_endofbuffer = 1
-    let g:onedark_terminal_italics = 1
     " onedark.vim override: Don't set a background color when running in a terminal;
     " just use the terminal's background color
     " `gui` is the hex color code used in GUI mode/nvim true-color mode
@@ -110,11 +101,16 @@ if (has("termguicolors"))
         " `bg` will not be styled since there is no `bg` setting
       augroup END
     endif
-    colorscheme onedark
 
-    " NeoSolarized
-    "let g:neosolarized_termtrans = 1
-    "colorscheme NeoSolarized
+    "syntax enable           "not with onedark colorscheme
+    syntax on
+    set termguicolors
+    set wildoptions=pum
+
+    "One dark
+    let g:onedark_hide_endofbuffer = 1
+    let g:onedark_terminal_italics = 1
+    colorscheme onedark
 
     " gruvbox
     "let g:gruvbox_contrast_dark='hard'
