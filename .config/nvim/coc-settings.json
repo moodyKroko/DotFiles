@@ -1,6 +1,6 @@
 {
     "codeLens.enable": true,
-    "diagnostic.virtualText": true,
+    //"diagnostic.virtualText": true,
     // coc settings, custom icons on gutter
     "diagnostic.enable": true,
     "diagnostic.errorSign": "",
@@ -24,6 +24,7 @@
         "python",
         "markdown",
         "json"
-    ]
-    // adding git test
+    ],
+    "coc.preferences.extensionUpdateCheck": "weekly",
+    "coc.preferences.colorSupport": false
 }

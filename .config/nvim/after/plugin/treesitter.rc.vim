@@ -5,22 +5,23 @@ endif
 
 lua <<EOF
 require 'nvim-treesitter.configs'.setup {
-	highlight = {
-		enable = true,
-		disable = {},
-	},
-	indent = {
-		enable = false,
-		disable = {},
-	},
-	ensure_installed = {
+ 	highlight = {
+ 		enable = true,
+ 		disable = {},
+ 	},
+ 	indent = {
+ 		enable = false,
+ 		disable = {},
+ 	},
+     incremental_selection = {
+         enable = false,
+         disable = {},
+     },
+    ensure_installed = {
         "java",
         "json",
-        "html",
-        "css",
-        "python",
         "lua",
         "latex"
-	}
+    }
 }
 EOF

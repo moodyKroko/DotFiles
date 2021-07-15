@@ -10,11 +10,10 @@ set nocompatible
 let mapleader=" "
 filetype off
 
-set encoding=utf8
+set encoding=utf-8
 set number relativenumber
 set ruler
 
-" test
 set clipboard+=unnamedplus
 set cmdheight=1
 set hidden
@@ -88,6 +87,15 @@ runtime ./maps.vim
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 if (has("termguicolors"))
+    "syntax enable           "not with onedark colorscheme
+    syntax on
+    set termguicolors
+    set wildoptions=pum
+
+    "One dark
+    let g:onedark_hide_endofbuffer = 1
+    let g:onedark_terminal_italics = 1
+
     " onedark.vim override: Don't set a background color when running in a terminal;
     " just use the terminal's background color
     " `gui` is the hex color code used in GUI mode/nvim true-color mode
@@ -102,14 +110,6 @@ if (has("termguicolors"))
       augroup END
     endif
 
-    "syntax enable           "not with onedark colorscheme
-    syntax on
-    set termguicolors
-    set wildoptions=pum
-
-    "One dark
-    let g:onedark_hide_endofbuffer = 1
-    let g:onedark_terminal_italics = 1
     colorscheme onedark
 
     " gruvbox
@@ -128,9 +128,6 @@ autocmd VimResized * wincmd =
 " Update a buffer's contents on focus if it changed outside of Vim.
 au FocusGained,BufEnter * :checktime
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 "}}}
 
 " Python config
@@ -144,4 +141,10 @@ let g:python3_host_prog = '/usr/bin/python3'
         " rainbow color bracket setting
         let g:rainbow_active = 1
     "}}}
+
+    " get correct comment highlighting "{{{
+    " -------------------------------------------------------------------------
+        autocmd FileType json syntax match Comment +\/\/.\+$+
+
+    " }}}
 "}}}

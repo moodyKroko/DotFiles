@@ -92,9 +92,21 @@ function! s:show_documentation()
     endif
 endfunction
 
+" Highlight the symbol and its references when holding the cursor.
+"autocmd CursorHold * silent call CocActionAsync('highlight')
+
 " Formatting selected code.
     "xmap <leader>f  <Plug>(coc-format-selected)
     "nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
 
 " Launch fzf with CTRL+P.
     nnoremap <silent> <C-p> :FZF -m<CR>
