@@ -93,28 +93,39 @@ if (has("termguicolors"))
     set wildoptions=pum
 
     "One dark
-    let g:onedark_hide_endofbuffer = 1
-    let g:onedark_terminal_italics = 1
+    "let g:onedark_hide_endofbuffer = 1
+    "let g:onedark_terminal_italics = 1
 
     " onedark.vim override: Don't set a background color when running in a terminal;
     " just use the terminal's background color
     " `gui` is the hex color code used in GUI mode/nvim true-color mode
     " `cterm` is the color code used in 256-color mode
     " `cterm16` is the color code used in 16-color mode
-    if (has("autocmd") && !has("gui_running"))
-      augroup colorset
-        autocmd!
-        let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-        autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white })
-        " `bg` will not be styled since there is no `bg` setting
-      augroup END
-    endif
+    "if (has("autocmd") && !has("gui_running"))
+    "  augroup colorset
+    "    autocmd!
+    "    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
+    "    " Make `Function`s bold in GUI mode
+    "    autocmd ColorScheme * call onedark#extend_highlight("Function", { "gui": "bold" })
+
+    "    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white })
+    "    " `bg` will not be styled since there is no `bg` setting
+    "  augroup END
+    "endif
 
     "colorscheme onedark
 
     " gruvbox
     let g:gruvbox_contrast_dark='hard'
     colorscheme gruvbox
+
+    highlight ColorColumn ctermbg=0 guibg=grey
+    hi SignColumn guibg=none
+    hi CursorLineNR guibg=None
+    highlight Normal guibg=none         " use terminal bg
+    highlight LineNr guifg=#5eacd3      " gutter fg
+    highlight netrwDir guifg=#5eacd3
+    highlight qfFileName guifg=#aed75f
 endif
 
 "}}}
