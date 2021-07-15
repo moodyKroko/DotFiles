@@ -24,4 +24,5 @@
     ],
     "coc.preferences.extensionUpdateCheck": "weekly",
     "coc.preferences.colorSupport": true
+    // testing new git key
 }
