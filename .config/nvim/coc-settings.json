@@ -1,6 +1,6 @@
 {
     "codeLens.enable": true,
-    //"diagnostic.virtualText": true,
+    "diagnostic.virtualText": true,
     // coc settings, custom icons on gutter
     "diagnostic.enable": true,
     "diagnostic.errorSign": "",
@@ -11,6 +11,8 @@
     "git.realtimeGutters": true,
     "git.enableGutters": true,
     // suggestions
+    "suggest.echodocSupport": true,
+    "suggest.maxCompleteItemCount": 20,
     "suggest.noselect": true,
     "suggest.enablePreselect": true,
     // java settings
@@ -19,10 +21,8 @@
     "java.completion.enabled": true,
     // preferences
     "coc.preferences.formatOnSaveFiletypes": [
-        "css",
         "java",
         "python",
-        "markdown",
         "json"
     ],
     "coc.preferences.extensionUpdateCheck": "weekly",

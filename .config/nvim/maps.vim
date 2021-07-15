@@ -93,7 +93,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-"autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Formatting selected code.
     "xmap <leader>f  <Plug>(coc-format-selected)
