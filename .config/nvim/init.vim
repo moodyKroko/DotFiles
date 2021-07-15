@@ -110,11 +110,11 @@ if (has("termguicolors"))
       augroup END
     endif
 
-    colorscheme onedark
+    "colorscheme onedark
 
     " gruvbox
-    "let g:gruvbox_contrast_dark='hard'
-    "colorscheme gruvbox
+    let g:gruvbox_contrast_dark='hard'
+    colorscheme gruvbox
 endif
 
 "}}}
