@@ -26,5 +26,5 @@
         "json"
     ],
     "coc.preferences.extensionUpdateCheck": "weekly",
-    "coc.preferences.colorSupport": false
+    "coc.preferences.colorSupport": true
 }
