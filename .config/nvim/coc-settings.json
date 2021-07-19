@@ -21,7 +21,8 @@
     "coc.preferences.formatOnSaveFiletypes": [
         "java",
         "python",
-        "json"
+        "json",
+        "yaml"
     ],
     "coc.preferences.extensionUpdateCheck": "weekly",
     "coc.preferences.colorSupport": true
