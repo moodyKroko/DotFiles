@@ -68,7 +68,7 @@
     autocmd BufNewFile *.java
       \ exe "normal Opublic class " .
       \ expand('%:t:r') .
-      \ "\s {\npublic static void main(String[] args) {\n\n}\n}\<Esc>1G"
+      \ " {\n\n}\<Esc>1G"
 
     augroup mygroup
         autocmd!
@@ -143,5 +143,16 @@
 " Add `:Format` command to format current buffer.
     command! -nargs=0 Format :call CocAction('format')
 
+" Rename symbol
+    nmap <leader>rn <Plug>(coc-rename)
+
+" Show all errors/warnings
+    nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+
+" Kitchen sink of all LSP commands
+    nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+
+" Fuzzy search for ALL symbols
+    nnoremap <silent><nowait> <space><S-s>  :<C-u>CocList -I symbols<cr>
 "}}}
 

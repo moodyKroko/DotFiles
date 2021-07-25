@@ -17,6 +17,7 @@ Plug 'joshdick/onedark.vim'
 if has("nvim")
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'mfussenegger/nvim-jdtls'
 endif
 
 Plug 'ryanoasis/vim-devicons'   " should always be last
