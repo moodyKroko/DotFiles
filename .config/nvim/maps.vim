@@ -26,6 +26,12 @@
     nnoremap N Nzzzv
     nnoremap J mzJ`z
 
+" Undo break points
+    inoremap , ,<c-g>u
+    inoremap . .<c-g>u
+    inoremap ! !<c-g>u
+    inoremap ? ?<c-g>u
+
 " Moving text
     vnoremap J :m '>+1<CR>gv=gv
     vnoremap K :m '<-2<CR>gv=gv
