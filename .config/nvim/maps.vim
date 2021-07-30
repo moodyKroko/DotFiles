@@ -18,6 +18,22 @@
     map <C-k> <C-w>k
     map <C-l> <C-w>l
 
+" QoL remaps
+    nnoremap Y y$
+
+" keeping it cetered
+    nnoremap n nzzzv
+    nnoremap N Nzzzv
+    nnoremap J mzJ`z
+
+" Moving text
+    vnoremap J :m '>+1<CR>gv=gv
+    vnoremap K :m '<-2<CR>gv=gv
+    inoremap <C-j> <esc>:m .+1<CR>==
+    inoremap <C-k> <esc>:m .-2<CR>==
+    nnoremap <leader>k :m .-2<CR>==
+    nnoremap <leader>j :m .+1<CR>==
+
 " Cycle through splits.
     nnoremap <S-Tab> <C-w>w
 
@@ -87,9 +103,9 @@
 "}}}
 
 " TAB: Open current directory
-    nmap te :tabedit
-    nmap <S-Tab> :tabprev<Return>
-    nmap <Tab> :tabnext<Return>
+    "nmap te :tabedit
+    "nmap <S-Tab> :tabprev<Return>
+    "nmap <Tab> :tabnext<Return>
 
 " Coc settings "{{{
 " -----------------------------------------------------------------------------
