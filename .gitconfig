@@ -16,7 +16,7 @@
 [init]
     defaultBranch = main
 [github]
-    user = LeoRuss
+    user = moodyKroko
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

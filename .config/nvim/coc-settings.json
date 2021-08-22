@@ -1,5 +1,6 @@
 {
     // testing new git key
+    "diagnostic.virtualText": true,
     "diagnostic.enable": true,
     "diagnostic.errorSign": "",
     "diagnostic.warningSign": "",
