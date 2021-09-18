@@ -140,6 +140,8 @@
     nmap <silent> gi <Plug>(coc-implementation)
     nmap <silent> gr <Plug>(coc-references)
 
+    nmap <silent><leader>la <Plug>(coc-codeaction)
+
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
     inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
@@ -166,7 +168,7 @@
     command! -nargs=0 Format :call CocAction('format')
 
 " Rename symbol
-    nmap <leader>rn <Plug>(coc-rename)
+    nmap <leader><S-r> <Plug>(coc-rename)
 
 " Show all errors/warnings
     nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
