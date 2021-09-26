@@ -63,7 +63,7 @@
 " Highlights "{{{
 " ---------------------------------------------------------------------
     set cursorline
-    set colorcolumn=80
+    set colorcolumn=120
     set nohlsearch
 
 " Set cursor line color on visual mode
