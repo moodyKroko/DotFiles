@@ -13,6 +13,23 @@
     interactive = auto
     grep = auto
     ui = auto
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[submodule]
+	recurse = true
+	fetchJobs = 0
+[rebase]
+	autoStash = true
 [init]
     defaultBranch = main
 [github]
