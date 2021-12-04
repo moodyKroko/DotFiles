@@ -1,9 +1,9 @@
 [user]
-	name = Russel Rai
-	email = 2011869@brunel.ac.uk
+    name = Russel Rai
+    email = 2011869@brunel.ac.uk
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore_global
+    editor = vim
+    excludesfile = ~/.gitignore_global
     autocrlf = true
     filemode = false
     pager = less -FRSX
@@ -22,10 +22,10 @@
     pager = true
     filemode = false
 [submodule]
-	recurse = true
-	fetchJobs = 0
+    recurse = true
+    fetchJobs = 0
 [rebase]
-	autoStash = true
+    autoStash = true
 [merge]
     tool = kdiff3
 [mergetool "kdiff3"]
@@ -38,7 +38,7 @@
 [github]
     user = moodyKroko
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
+    process = git-lfs filter-process
