@@ -1,9 +1,15 @@
 [user]
 	name = Russel Rai
-	email = leon.amorphy@googlemail.com
+	email = 2011869@brunel.ac.uk
 [core]
-	editor = nvim
-	excludesfile = ~/.gitignore
+	editor = vim
+	excludesfile = ~/.gitignore_global
+    autocrlf = true
+    filemode = false
+    pager = less -FRSX
+[rerere]
+    enabled = true
+    autoupdate = true
 [push]
     default = simple
 [color]
@@ -13,23 +19,20 @@
     interactive = auto
     grep = auto
     ui = auto
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+    pager = true
+    filemode = false
 [submodule]
 	recurse = true
 	fetchJobs = 0
 [rebase]
 	autoStash = true
+[merge]
+    tool = kdiff3
+[mergetool "kdiff3"]
+    keepBackup = false
+    trustExitCode = false
+[diff]
+    tool = kdiff3
 [init]
     defaultBranch = main
 [github]
