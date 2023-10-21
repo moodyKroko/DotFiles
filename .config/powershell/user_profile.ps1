@@ -1,106 +1,160 @@
 # Prompt
+## Install-Module posh-git -Scope CurrentUser -Force ## use in terminal
 Import-Module posh-git
-Import-Module oh-my-posh
 Import-Module z
-Set-PoshPrompt star
 
-# Icons
+## Load prompt config
+oh-my-posh init pwsh --config 'C:/Users/james/.config/powershell/star.omp.json' | Invoke-Expression
+
+## Icons
+## Install-Module -Name Terminal-Icons -Repository PSGallery -Force
 Import-Module -Name Terminal-Icons
 
-# PSRreadLine
+## PSRreadLine
 Set-PSReadLineOption -BellStyle None
-Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 
-# Fzf
-Import-Module -Name PSFzf
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChfordReverseHistory 'Ctrl+r'
+## Fzf (fuzzy file finder)
+Import-Module PSFzf
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChfordReverseHist 'Ctrl+r'
 
+# Alias
+# Remove-Alias -Name gl -Force
+Set-Alias vim nvim
+Set-Alias scp scoop
+Set-Alias grep findstr
+Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
+Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
+
+# System aliases
+function ll
+{
+  Get-ChildItem -Force -File 
+}
+function rm
+{
+  Remove-Item -confirm 
+}
+function cp
+{
+  Copy-Item
+}
+function c
+{
+  Clear-Host
+}
+function rfresh
+{
+  . $PROFILE
+}
 
 # Root
 $ROOT = "C:\Users\james"
 
-# Alias
-Remove-Alias -Name gl -Force
-Set-Alias vim nvim
-Set-Alias grep findstr
-Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
-Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
-#Set-Alias node 'C:\Users\james\scoop\apps\nodejs-lts\16.13.1\node.exe'
-
 # Edit profile
-function pconfig
+function pconf
 {
-    $PCONF = $ROOT + "\.config\PowerShell\user_profile.ps1"
-    vim $PCONF
+  $POWERSHELLCONFIG = $ROOT + "\.config\PowerShell\user_profile.ps1"
+  vim $POWERSHELLCONFIG
 }
 
 # edit vim setting
-function vconfig
+function vconf
 {
-    $VCONF = $ROOT + "\AppData\Local\nvim\init.vim"
-    vim $VCONF
+  $VIMCONFIG = $ROOT + "\AppData\Local\nvim\init.lua"
+  vim $VIMCONFIG
 }
 
-function gconfig
+# edit git config
+function gconf
 {
-    $GITCONF = $ROOT + "\.gitconfig"
-    vim $GITCONF
+  $GITCONF = $ROOT + "\.gitconfig"
+  vim $GITCONF
 }
-
-# System aliases
-function ls { ls -Force -File }
-function rm { rm -confirm }
-
 # find files in all childrend directories
 function find($fileName)
 {
-    ls -Filter $fileName -Recurse -File
+  Get-ChildItem -Filter $fileName -Recurse -File
 }
-Set-Alias ll ls
-Set-Alias c clear
 
 # Git aliases
 Set-Alias g git
-function gs { git status }
-function gaa  { git add --all }
-function gb { git branch }
-function clone($repo) { git clone $repo }
+function gs
+{
+  git status
+}
+function clone($repo)
+{
+  git clone $repo
+}
 
 function gco($branchName)
 {
-    git checkout $branchName
+  git checkout $branchName
 }
 
 function gcob($branchName)
 {
-    git checkout -b $branchName
+  git checkout -b $branchName
 }
 
-function gd { git diff }
-function fetch { git fetch }
-
-function gc($message)
+function gd
 {
-    git commit -m $message
+  git diff
+}
+function fetch
+{
+  git fetch
 }
 
-function gp { git push }
-function gpo { git push origin }
-function gpl { git pull }
-function gplo { git pull origin}
-function tag  { git tag }
-function newtag { git tag -a }
-function gl { git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit }
+function gcm($message)
+{
+  git commit -m $message
+}
 
+function gp
+{
+  git push
+}
+function gpo
+{
+  git push origin
+}
+function gpl
+{
+  git pull
+}
+function gplo
+{
+  git pull origin
+}
+function tag
+{
+  git tag
+}
+function newtag
+{
+  git tag -a
+}
+function gl
+{
+  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit 
+}
 
 # Run as admin
-function Start-PSAdmin {Start-Process PowerShell -Verb RunAs}
+function Start-PSAdmin
+{
+  Start-Process PowerShell -Verb RunAs
+}
 Set-Alias psAdmin Start-PSAdmin
 
 # Utilities
-function which ($command) {
-    Get-Command -Name $command -ErrorAction SilentlyContinue |
-        Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+function which ($command)
+{
+  Get-Command -Name $command -ErrorAction SilentlyContinue |
+    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
+
+
