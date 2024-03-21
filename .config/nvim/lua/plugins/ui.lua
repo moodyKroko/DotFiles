@@ -4,15 +4,18 @@ return {
   { "akinsho/bufferline.nvim", enabled = false },
   {
     "echasnovski/mini.indentscope",
-    enabled = false
+    enabled = false,
   },
 
   -- status line
   {
     "nvim-lualine/lualine.nvim",
+    -- enabled = false,
     opts = {
       options = {
         theme = "papercolor_light",
+        -- section_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
       },
     },
   },
@@ -22,8 +25,8 @@ return {
     "rcarriga/nvim-notify",
     lazy = true,
     opts = {
-      stages = "static",
       timeout = 3000,
+      stages = "static",
       render = "default", -- "compact"
       background_colour = "#56B6C2", --#a9ff68
     },
@@ -82,5 +85,22 @@ return {
         },
       },
     },
+  },
+
+  {
+    "nvimdev/dashboard-nvim",
+    opts = function(_, opts)
+      local logo = [[
+███╗   ███╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗██╗  ██╗██████╗  ██████╗ ██╗  ██╗ ██████╗ 
+████╗ ████║██╔═══██╗██╔═══██╗██╔══██╗╚██╗ ██╔╝██║ ██╔╝██╔══██╗██╔═══██╗██║ ██╔╝██╔═══██╗
+██╔████╔██║██║   ██║██║   ██║██║  ██║ ╚████╔╝ █████╔╝ ██████╔╝██║   ██║█████╔╝ ██║   ██║
+██║╚██╔╝██║██║   ██║██║   ██║██║  ██║  ╚██╔╝  ██╔═██╗ ██╔══██╗██║   ██║██╔═██╗ ██║   ██║
+██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██████╔╝   ██║   ██║  ██╗██║  ██║╚██████╔╝██║  ██╗╚██████╔╝
+╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ 
+                                                                                        
+      ]]
+      logo = string.rep("\n", 8) .. logo .. "\n\n"
+      opts.config.header = vim.split(logo, "\n")
+    end,
   },
 }

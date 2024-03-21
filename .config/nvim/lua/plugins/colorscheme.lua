@@ -15,7 +15,7 @@ return {
       return {
         require("rose-pine").setup({
           variant = "auto",
-          dark_variant = "main",
+          dark_variant = "moon",
           dim_inactive_windows = false,
           extend_background_behind_borders = false,
 
@@ -29,10 +29,7 @@ return {
           },
 
           highlight_groups = {
-            -- blend colours against the 'base' background
-            -- ColorColumn = { bg = "pine", blend = 40 },
             ColorColumn = { bg = "highlight_low", blend = 40 },
-            -- CursorLine = { bg = "pine", blend = 21 },
             CursorLine = { bg = "highlight_med", blend = 90 },
 
             Search = { bg = "love", inherit = false },

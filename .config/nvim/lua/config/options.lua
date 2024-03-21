@@ -26,7 +26,7 @@ opt.undodir = "C:/Users/james/.vim/undodir"
 opt.winblend = 0
 opt.pumblend = 0
 
-opt.wildmode = "full" --"longest:full,full"
+-- opt.wildmode = "full" --"longest:full,full"
 opt.scrolloff = 10
 
 -- hide tab characters
