@@ -24,3 +24,4 @@ My dotfiles
 
 ## Wezterm
 - [Wezterm](https://wezfurlong.org/wezterm/index.html) - Powerful cross-platform terminal emulator and multiplexer
+![](neovim_screenshot.png)
