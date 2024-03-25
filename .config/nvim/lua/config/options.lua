@@ -20,7 +20,7 @@ opt.colorcolumn = "80"
 opt.swapfile = false
 opt.backup = false
 opt.backupskip = { "/tmp/*", "/private/tmp/*" }
-opt.undodir = "C:/Users/james/.vim/undodir"
+vim.opt.undodir = (os.getenv("UserProfile") or os.getenv("HOME")) .. "/.vim/undodir"
 
 -- highlights
 opt.winblend = 0
@@ -42,24 +42,18 @@ opt.backspace = { "start", "eol", "indent" }
 opt.path:append({ "**" }) -- Finding files - Search down into subfolders
 opt.wildignore:append({ "*/node_modules/*" })
 
--- terminal settings
--- local powershell_options = {
---   shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
---   shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
---   shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
---   shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
---   shellquote = "",
---   shellxquote = "",
--- }
-local powershell_opts = {
-  shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
-  shellcmdflag = "-NoLogo -NoProfile -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-  shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-  shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-  shellquote = "",
-  shellxquote = "",
-}
+if os.getenv("os") == "Windows_NT" then
+  -- terminal settings
+  local powershell_opts = {
+    shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
+    shellcmdflag = "-NoLogo -NoProfile -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+    shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+    shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+    shellquote = "",
+    shellxquote = "",
+  }
 
-for option, value in pairs(powershell_opts) do
-  vim.opt[option] = value
+  for option, value in pairs(powershell_opts) do
+    vim.opt[option] = value
+  end
 end
