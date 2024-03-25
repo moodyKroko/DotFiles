@@ -6,6 +6,7 @@ local act = wezterm.action
 -- This table will hold the configuration.
 local config = {}
 local launch_menu = {}
+local dimmer = { brightness = 0.03 }
 
 -- In newer versions of wezterm, use the config_builder which will
 -- help provide clearer error messages
@@ -19,17 +20,11 @@ config.default_prog = { "pwsh.exe", "-NoLogo" }
 table.insert(launch_menu, {
 	label = "PowerShell",
 	args = { "powershell.exe", "-NoLogo" },
-	set_environment_variables = {
-		TERM = "screen-256color",
-	},
 })
 
 table.insert(launch_menu, {
 	label = "Pwsh",
 	args = { "pwsh.exe", "-NoLogo" },
-	set_environment_variables = {
-		TERM = "screen-256color",
-	},
 })
 
 table.insert(launch_menu, {
@@ -40,33 +35,43 @@ table.insert(launch_menu, {
 	},
 })
 
-
-config.wsl_domains = {
-	{
-		name = "WSL:Ubuntu",
-		distribution = "Ubuntu",
-		default_cwd = "~",
-	},
-}
-
 config.window_padding = {
-	left = 0,
+	left = 5,
 	right = 0,
 	top = 0,
 	bottom = 0,
 }
 
 config.launch_menu = launch_menu
--- config.term = "wezterm"
 
-config.color_scheme = "Aci (Gogh)" -- "Catppuccin Mocha" -- 'One Dark (Gogh)'
-config.window_background_opacity = 0.9 -- 0.998
-config.window_decorations = "RESIZE"
-config.bold_brightens_ansi_colors = true
-config.colors = { cursor_fg = "black" }
+wezterm.on("gui-startup", function(cmd)
+	local tab, build_pane, window = mux.spawn_window({
+		position = { x = 900, y = 5 },
+		workspace = "start",
+	})
+end)
 
 config.initial_rows = 41
 config.initial_cols = 100
+
+--"tokyonight_night" --"Catppuccin Mocha"
+--"Shaman (Gogh)" --"Aci (Gogh)"
+config.color_scheme = "Catppuccin Mocha"
+config.colors = { cursor_fg = "black" }
+config.bold_brightens_ansi_colors = true
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+
+config.background = {
+	{
+		source = {
+			File = os.getenv("UserProfile") .. '/.config/wezterm/bg-wallpaper.jpg'
+		},
+    attachment = "Fixed",
+    hsb = dimmer,
+    vertical_align = "Middle",
+    horizontal_align = "Center"
+	},
+}
 
 config.hide_tab_bar_if_only_one_tab = false
 
@@ -75,19 +80,7 @@ config.font = wezterm.font_with_fallback({
 	"Hack Nerd Font",
 	"JetBrains Mono",
 	"Fira Code",
-	"DengXian",
 })
-
-config.font_rules = {
-	{
-		intensity = "Bold",
-		italic = true,
-		font = wezterm.font({
-			family = "Hack Nerd Font",
-			italic = true,
-		}),
-	},
-}
 
 -- Dim inactive panes
 config.inactive_pane_hsb = {
@@ -97,37 +90,34 @@ config.inactive_pane_hsb = {
 
 -- on wezterm startup
 -- wezterm.on("gui-startup", function(cmd)
-  -- use this once you are working on a project
-	--  local args = {}
-	--
-	-- -- setup a workspace for coding on current project
-	-- local project_dir = "E:/Projects/React/valentine-site"
-	--
-	-- -- setup initial starting position
-	-- local tab, build_pane, window = mux.spawn_window({
-	-- 	position = { x = 900, y = 5 },
-	-- 	workspace = "valentine",
-	-- 	cwd = project_dir,
-	-- })
-	--
-	-- -- open another tab for terminal
-	-- local _, editor_pane, _ = window:spawn_tab({})
-	--
-	-- -- open window with 2 split pane for server and console
-	-- local console_pane = build_pane:split({
-	-- 	direction = "Top",
-	-- 	size = 0.5,
-	-- 	cwd = project_dir,
-	-- })
-	--  build_pane:send_text 'npm run dev\n'
+-- use this once you are working on a project
+-- local args = {}
 
-  -- new workspace
-	-- local tab, pane, window = mux.spawn_window({
-	-- 	workspace = "base",
-	--    cwd = wezterm.home_dir .. '/wezterm',
-	-- })
+-- -- setup a workspace for coding on current project
+-- local project_dir = "E:/Projects/React/valentine-site"
+-- setup initial starting position
+-- local tab, build_pane, window = mux.spawn_window({
+-- 	position = { x = 900, y = 5 },
+-- })
 
-	-- set startup coding workspace
+-- -- open another tab for terminal
+-- local _, editor_pane, _ = window:spawn_tab({})
+--
+-- -- open window with 2 split pane for server and console
+-- local console_pane = build_pane:split({
+-- 	direction = "Top",
+-- 	size = 0.5,
+-- 	cwd = project_dir,
+-- })
+--  build_pane:send_text 'npm run dev\n'
+
+-- new workspace
+-- local tab, pane, window = mux.spawn_window({
+-- 	workspace = "base",
+--    cwd = wezterm.home_dir .. '/wezterm',
+-- })
+
+-- set startup coding workspace
 -- 	mux.set_active_workspace("base")
 -- end)
 
